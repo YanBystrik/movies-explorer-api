@@ -1,7 +1,7 @@
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
-  'https://mesto.yanbyst.nomoreparties.sbs',
-  'http://mesto.yanbyst.nomoreparties.sbs',
+  'http://movies-yan.nomoredomains.xyz',
+  'https://movies-yan.nomoredomains.xyz',
   'localhost:3005',
 ];
 

@@ -16,6 +16,8 @@ require('dotenv').config();
 const corsAllowed = [
   'http://localhost:3000',
   'http://localhost:3001',
+  'http://movies-yan.nomoredomains.xyz',
+  'https://movies-yan.nomoredomains.xyz',
 ];
 
 const corsOptions = {
