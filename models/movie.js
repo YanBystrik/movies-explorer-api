@@ -27,7 +27,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate(value) {
-      if (!validator.isUrl(value)) {
+      if (!validator.isURL(value)) {
         throw new InvalidError('Неверная ссылка');
       }
     },
@@ -36,7 +36,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate(value) {
-      if (!validator.isUrl(value)) {
+      if (!validator.isURL(value)) {
         throw new InvalidError('Неверная ссылка');
       }
     },
@@ -45,7 +45,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate(value) {
-      if (!validator.isUrl(value)) {
+      if (!validator.isURL(value)) {
         throw new InvalidError('Неверная ссылка');
       }
     },
