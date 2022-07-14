@@ -5,7 +5,7 @@ const InvalidError = require('../utils/invalidError');
 
 module.exports.getMovies = (req, res, next) => {
   const owner = req.user._id;
-  Movie.find(owner)
+  Movie.find({ owner })
     .then((movie) => res.send({ data: movie }))
     .catch(next);
 };
@@ -19,7 +19,7 @@ module.exports.createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,
@@ -33,7 +33,7 @@ module.exports.createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,

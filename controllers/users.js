@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const ErrorNotFound = require('../utils/errorNotFound');
 const InvalidError = require('../utils/invalidError');
+const ConflictError = require('../utils/conflict');
 
 module.exports.getUserMe = (req, res, next) => {
   User.findOne({ _id: req.user._id })
@@ -39,6 +40,10 @@ module.exports.updateUser = (req, res, next) => {
           }
         });
         next(new InvalidError(errorMessage));
+      }
+      if (err.code === 11000) {
+        next(new ConflictError('Пользователь с таким email уже зарегистрирован'));
+        return;
       }
       next(err);
     });

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 class InvalidError extends Error {
   constructor(message) {
     super(message);

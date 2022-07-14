@@ -13,7 +13,7 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  years: {
+  year: {
     type: String,
     required: true,
   },
@@ -25,7 +25,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  trailer: {
+  trailerLink: {
     type: String,
     required: true,
   },
@@ -39,7 +39,7 @@ const movieSchema = new mongoose.Schema({
     ref: 'user',
   },
   movieId: {
-    type: String,
+    type: Number,
     required: true,
   },
   nameRU: {
