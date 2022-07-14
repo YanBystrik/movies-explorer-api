@@ -28,7 +28,7 @@ module.exports.createUser = (req, res, next) => {
             errorMessage += `Ошибка в поле ${errVal.path}, `;
           }
         });
-        next(new InvalidError(errorMessage));
+        return next(new InvalidError(errorMessage));
       }
       if (err.code === 11000) {
         next(new ConflictError('Пользователь с таким email уже зарегистрирован'));

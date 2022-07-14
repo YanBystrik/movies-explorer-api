@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const AuthError = require('../utils/authError');
-const { JWT_SECRET } = require('../utils/config');
+const { JWT_SECRET, NODE_ENV } = require('../utils/config');
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -11,7 +11,7 @@ module.exports.login = (req, res, next) => {
       if (!user) {
         throw new AuthError('Такого пользователя не существует');
       }
-      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key', { expiresIn: '7d' });
       res
         .cookie('jwt', token, {
           httpOnly: true,

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
+const InvalidError = require('../utils/invalidError');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -24,14 +26,29 @@ const movieSchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
+    validate(value) {
+      if (!validator.isUrl(value)) {
+        throw new InvalidError('Неверная ссылка');
+      }
+    },
   },
   trailerLink: {
     type: String,
     required: true,
+    validate(value) {
+      if (!validator.isUrl(value)) {
+        throw new InvalidError('Неверная ссылка');
+      }
+    },
   },
   thumbnail: {
     type: String,
     required: true,
+    validate(value) {
+      if (!validator.isUrl(value)) {
+        throw new InvalidError('Неверная ссылка');
+      }
+    },
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,

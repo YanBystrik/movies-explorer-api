@@ -50,7 +50,7 @@ module.exports.createMovie = (req, res, next) => {
             errorMessage += `Ошибка в поле ${errVal.path}, `;
           }
         });
-        next(new InvalidError(errorMessage));
+        return next(new InvalidError(errorMessage));
       }
       next(err);
     });
